@@ -1,0 +1,15 @@
+[profile.default]
+src = 'contracts'
+test = 'test'
+out = 'out'
+libs = ['node_modules']
+cache_path  = 'forge-cache'
+solc_version = "0.8.25"
+path_pattern_inverse = "./contracts/*"
+optimizer_runs = 2500
+[fuzz]
+runs = 2560
+max_test_rejects = 655360
+[doc]
+title = "Maverick V2 Common Contracts"
+include_libraries = true

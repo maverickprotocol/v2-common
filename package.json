@@ -1,0 +1,32 @@
+{
+  "name": "@maverick/v2-common",
+  "version": "0.9.0",
+  "devDependencies": {
+    "cloc": "^1.98.0-cloc",
+    "postinstall": "^0.8.0",
+    "prettier": "^2.4.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.19",
+    "solhint": "^3.3.6",
+    "solhint-plugin-prettier": "^0.0.5",
+    "forge-std": "git+https://github.com/foundry-rs/forge-std.git"
+  },
+  "scripts": {
+    "test": "forge test --force",
+    "gas": "forge test --gas-report --force",
+    "build": "forge build --force",
+    "size": "forge build --sizes --force | tee .sizes",
+    "snapshot": "forge snapshot --match-contract Gas --force",
+    "lint": "solhint -f table 'contracts/**/**/**/*.sol'",
+    "prettier": "prettier --write '{test,contracts}/**/**/**/*.sol'",
+    "prettier-check": "prettier --check '{test,contracts}/**/**/**/*.sol'",
+    "lines": "cloc --by-file contracts --not-match-f='I'",
+    "test-lines": "cloc --by-file test --not-match-f=json",
+    "docgen": "forge doc --build; open docs/book/index.html",
+    "license-check": "grep  SPDX-License-Identifier contracts/**/*.sol contracts/*.sol",
+    "coverage": "forge coverage --report lcov; genhtml lcov.info -o cov --branch-coverage; open cov/index.html",
+    "coverage-report": "forge coverage | grep 'File\\|-----\\|contracts' | tee .coverage_report"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "5.0.1"
+  }
+}
